@@ -52,16 +52,16 @@ export default function App()
   const cartCount = cart.reduce((sum, i) => sum + i.qty, 0)
   const cartTotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0)
 
-  return 
-  (
+  return (
     <div className="bg-[#f5f0e8] text-[#1a1208]">
-      <Navbar cartCount={cartCount} onCartOpen={() => setCartOpen(true)} />
+      <NavBar cartCount={cartCount} onCartOpen={() => setCartOpen(true)} />
       <CartPanel
         cart={cart}
         cartTotal={cartTotal}
         isOpen={cartOpen}
         onClose={() => setCartOpen(false)}
         onRemoveOne={removeOneFromCart}
+        onAddOne={addToCart}
         onRemoveAll={removeFromCart}
         onClear={clearCart}
       />
